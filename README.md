@@ -330,44 +330,6 @@ Blokdoc is designed to serve a variety of document verification and management n
 | Search Capabilities | Full-text + metadata | Full-text + metadata | Limited to metadata |
 | Compliance Features | Built-in audit trails | Manual tracking | Transparent but basic |
 
-## 📅 Roadmap
-
-### Q3 2023 (Completed)
-- Core platform development
-- Solana integration for document verification
-- Basic document management features
-- IPFS/Arweave storage integration
-
-### Q4 2023 (Completed)
-- User authentication and access control
-- Document sharing and collaboration features
-- API development for third-party integration
-- Beta release to early adopters
-
-### Q1 2024 (In Progress)
-- Enhanced document processing and metadata extraction
-- Advanced search functionality
-- Improved user interface and experience
-- Extended blockchain verification options
-
-### Q2 2024 (Planned)
-- Mobile applications (iOS and Android)
-- Enterprise features for large organizations
-- Advanced analytics and reporting
-- Enhanced security features
-
-### Q3 2024 (Planned)
-- AI-powered document classification and insights
-- Workflow automation templates
-- Integration with popular enterprise software
-- Multi-chain support for document verification
-
-### Q4 2024 (Planned)
-- Governance framework for community involvement
-- Marketplace for document templates and extensions
-- Global expansion and localization
-- Enterprise-grade SLA offerings
-
 ## 🌍 Community and Contributions
 
 Blokdoc is an open-source project that thrives on community contributions. We welcome developers, designers, testers, and documentation writers to join our mission of revolutionizing document management through blockchain technology.
