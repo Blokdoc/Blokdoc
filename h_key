@@ -1,0 +1,10 @@
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+user.email=alfredbuckey378@hotmail.com
+user.name=Blokdoc
+remote.origin.url=git@github.com-blokdoc:Blokdoc/Blokdoc.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*

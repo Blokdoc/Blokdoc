@@ -1,0 +1,5 @@
+Host github.com-blokdoc
+  HostName github.com
+  User git
+  IdentityFile C:/Users/郭/Desktop/Blokdoc/blokdoc_ssh_key
+  IdentitiesOnly yes 
