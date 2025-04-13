@@ -19,3 +19,23 @@ default = []
 anchor-lang = "0.28.0"
 solana-program = "1.16.0"
 thiserror = "1.0.40" 
+name = "blokdoc"
+version = "0.1.0"
+description = "Document verification system on Solana blockchain"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = "0.28.0"
+borsh = "0.10.3"
+solana-program = "1.16.0"
+thiserror = "1.0.43" 

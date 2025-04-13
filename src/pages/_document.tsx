@@ -19,3 +19,23 @@ export default function Document() {
     </Html>
   );
 } 
+  );
+} 
+
+export default function Document() {
+  return (
+    <Html lang="en">
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="description" content="Blokdoc - Decentralized Intelligent Document Management and Collaboration Platform" />
+        <meta name="keywords" content="blockchain, document, management, solana, decentralized, collaboration" />
+        <link rel="icon" href="/favicon.ico" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+} 

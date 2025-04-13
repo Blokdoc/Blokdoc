@@ -126,3 +126,130 @@ const Header = () => {
 
 export default Header;
 
+
+};
+
+export default Header;
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { useWallet } from '@solana/wallet-adapter-react';
+import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+
+const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { connected } = useWallet();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
+  return (
+    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-md' : 'bg-transparent'}`}>
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <Link href="/" className="flex items-center space-x-2">
+          <Image src="/images/logo.png" alt="Blokdoc Logo" width={40} height={40} className="w-10 h-10" />
+          <span className="text-xl font-bold text-primary-600 dark:text-primary-400">Blokdoc</span>
+        </Link>
+        
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          <Link href="/features" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+            Features
+          </Link>
+          <Link href="/pricing" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+            Pricing
+          </Link>
+          <Link href="/about" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+            About
+          </Link>
+          <Link href="/docs" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+            Docs
+          </Link>
+        </nav>
+        
+        {/* Authentication buttons */}
+        <div className="hidden md:flex items-center space-x-4">
+          {connected ? (
+            <Link href="/dashboard" className="btn-primary">
+              Dashboard
+            </Link>
+          ) : (
+            <>
+              <Link href="/login" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                Login
+              </Link>
+              <Link href="/signup" className="btn-primary">
+                Get Started
+              </Link>
+            </>
+          )}
+          <WalletMultiButton />
+        </div>
+        
+        {/* Mobile menu button */}
+        <button 
+          className="md:hidden text-gray-700 dark:text-gray-300"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          )}
+        </button>
+      </div>
+      
+      {/* Mobile menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white dark:bg-gray-800 shadow-lg">
+          <div className="container mx-auto px-4 py-3 flex flex-col space-y-4">
+            <Link href="/features" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-2">
+              Features
+            </Link>
+            <Link href="/pricing" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-2">
+              Pricing
+            </Link>
+            <Link href="/about" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-2">
+              About
+            </Link>
+            <Link href="/docs" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-2">
+              Docs
+            </Link>
+            <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
+              {connected ? (
+                <Link href="/dashboard" className="btn-primary block text-center">
+                  Dashboard
+                </Link>
+              ) : (
+                <div className="flex flex-col space-y-3">
+                  <Link href="/login" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-2">
+                    Login
+                  </Link>
+                  <Link href="/signup" className="btn-primary block text-center">
+                    Get Started
+                  </Link>
+                </div>
+              )}
+              <div className="mt-3">
+                <WalletMultiButton />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;
